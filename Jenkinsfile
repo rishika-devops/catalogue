@@ -46,7 +46,7 @@ pipeline {
                    protocol: 'http',
                    nexusUrl: "${nexusURL}",
                    groupId: 'com.roboshop',
-                   version: "${packageVersion}",
+                   version: "${packageversion}",
                    repository: 'cataogue',
                    credentialsId: 'nexus-auth',
                    artifacts: [
