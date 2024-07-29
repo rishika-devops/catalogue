@@ -38,6 +38,7 @@ pipeline {
                 """  
             }
         }
+    }
     post {
         always {
             echo " i will always say hello again"
@@ -52,5 +53,4 @@ pipeline {
     }
 }
 
-}
 
