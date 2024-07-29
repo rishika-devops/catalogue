@@ -42,7 +42,7 @@ pipeline {
     post {
         always {
             echo " i will always say hello again"
-            // deleteDir()
+            deleteDir()
         }
         failure {
             echo " this runs when pipeline is failed , used generally to send some alerts"
