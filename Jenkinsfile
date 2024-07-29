@@ -4,6 +4,9 @@ pipeline {
             label 'Agent-1'
         }
     }
+    environment {
+        packageversion = ''
+    }
     options {
         timeout(time: 1 , unit : 'HOURS')
         disableConcurrentBuilds()
@@ -49,4 +52,5 @@ pipeline {
     }
 }
 
+}
 
