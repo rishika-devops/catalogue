@@ -13,9 +13,7 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-    parameters{
-        booleanParam(name: 'Deploy' , defaultValue: true , description: 'toggle this value')
-    }
+    
     stages {
         stage('get version') { 
             steps {
@@ -77,11 +75,6 @@ pipeline {
             }
         }
         stage('deploy'){
-            when{
-                expression{
-                    params.Deploy == 'true'
-                }
-            }
             steps{
                 script{
                     def params = [
