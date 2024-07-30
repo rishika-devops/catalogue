@@ -14,7 +14,7 @@ pipeline {
         ansiColor('xterm')
     }
     parameters{
-        booleanParam(name: 'deploy' , defaultValue: false , description: 'toggle this value')
+        booleanParam(name: 'deploy' , defaultValue: true , description: 'toggle this value')
     }
     stages {
         stage('get version') { 
