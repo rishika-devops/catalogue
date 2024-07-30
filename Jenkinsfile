@@ -13,6 +13,9 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
+    parameters{
+        booleanparam(name: 'deploy' , defaultValue: false , description: 'toggle this value')
+    }
     stages {
         stage('get version') { 
             steps {
@@ -30,6 +33,21 @@ pipeline {
                 """  
             }
         }
+        stage('unit testing') { 
+            steps {
+                sh """
+                  echo "unit test cases will run here"
+                """  
+            }
+        }
+        stage('sonar scan') { 
+            steps {
+                sh """
+                  sonar-scanner
+                """  
+            }
+        }
+
         stage('build') { 
             steps {
                 sh """
@@ -59,6 +77,11 @@ pipeline {
             }
         }
         stage('deploy'){
+            when{
+                expression{
+                    params.deploy == 'true'
+                }
+            }
             steps{
                 script{
                     def params = [
