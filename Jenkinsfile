@@ -1,7 +1,7 @@
 #!groovy
 @Library('roboshop-shared-library')_
 def configMap = [
-    application : "nodejsVM"
+    application : "nodejsVM" ,
     component : "catalogue"
 ]
 if(! env.BRANCH_NAME.equalsIgnoreCase('main')){
